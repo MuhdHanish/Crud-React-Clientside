@@ -4,9 +4,14 @@ import MainSection from './MainSection/MainSection'
 
 
 const Profile = () => {
+  const details = {
+    headerText:'Profile',
+    linkText:'Go To Home',
+    link:''
+  }
   return (
     <>
-    <Navbar/>
+    <Navbar details={details}/>
     <MainSection/>
     </>
   )
