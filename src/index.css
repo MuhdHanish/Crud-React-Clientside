@@ -21,5 +21,6 @@ body{
 .error-message {
  color: red;
  font-size: 15px;
- margin-top: 3px;
+ margin-top: 1px;
+
 }
