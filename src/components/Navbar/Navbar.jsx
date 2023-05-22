@@ -5,13 +5,12 @@ import NavbarButton from "./NavbarButton/NavbarButton";
 import "./Navbar.css"
 
 const Navbar = (props) => {
-  const {headerText,linkText,link} = props.details
   return (
      <header>
       <div className="container">
-        <h3 className="text-with-underline">{headerText}</h3>
+        <h3 className="text-with-underline">{props.details.headerText}</h3>
         <div className="right-section">
-          <NavbarButton linkText={linkText} link={link}/>
+          {props.Admin?'':<NavbarButton linkText={props.details.linkText} link={props.details.link}/>}
         </div>
       </div>
     </header>

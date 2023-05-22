@@ -3,7 +3,10 @@ import { Route, Routes } from "react-router-dom";
 import Login from "./components/Login/Login";
 import Profile from "./components/Profile/Profile";
 import Signup from "./components/Signup/Signup";
+
 import Home from "./pages/Home";
+import AdminHome from './pages/AdminHome'
+import AdminLogin from "./components/AdminLogin/AdminLogin";
 
 function App() {
   return (
@@ -13,6 +16,8 @@ function App() {
         <Route path="/login" exact element={<Login />}/>
         <Route path="/signup" exact element={<Signup />}/>
         <Route path="/profile" exact element={<Profile />}/>
+        <Route path="/admin" exact element={<AdminHome/>}/>
+        <Route path="/admin/login" exact element={<AdminLogin/>}/>
       </Routes>
     </>
   )
