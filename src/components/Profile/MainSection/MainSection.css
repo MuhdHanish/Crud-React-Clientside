@@ -1,0 +1,45 @@
+.profile-section{
+  max-width: 500px; 
+  width: 100%;
+  margin: 0 auto;
+}
+.user-details{
+ text-align: center;
+}
+
+.img-rounded-circle{
+ width: 200px ;
+}
+
+.edit-profile-button-position{
+ display: flex;
+ justify-content: center;
+}
+
+.edit-profile-text{
+  margin-top: 3px;
+}
+
+.edit-profile-icon{
+ margin-left: 10px;
+ margin-bottom: 2px 
+}
+
+.edit-profile-button{
+ background-color: black;
+ border-radius: 100px;
+ width: 200px;
+ border: none;
+ color: white;
+ outline: none;
+ font-size: 18px;
+ padding: 10px;
+ cursor: pointer;
+ transition: all 0.3s ease-in-out;
+ box-sizing: border-box;
+}
+
+.edit-profile-button:hover {
+ background-color: white;
+ color: black;
+}

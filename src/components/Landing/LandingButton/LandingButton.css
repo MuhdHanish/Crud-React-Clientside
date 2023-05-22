@@ -1,0 +1,19 @@
+.landing-button{
+ background-color: black;
+ border-radius: 100px;
+ width:100px;
+ border: none;
+ color: white;
+ outline: none;
+ font-size: 18px;
+ padding: 10px;
+ cursor: pointer;
+ transition: all 0.3s ease-in-out;
+ box-sizing: border-box;
+ margin-bottom: 50px;
+}
+
+.landing-button:hover {
+ background-color: white;
+ color: black;
+}

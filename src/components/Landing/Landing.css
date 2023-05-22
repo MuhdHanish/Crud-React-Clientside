@@ -1,0 +1,26 @@
+.landing{
+ overflow-x: hidden;
+}
+
+.landing-left-section-content{
+ display: flex;
+ justify-content: center;
+ align-items: center;
+ margin-top: 50px;
+ margin-bottom: 20px;
+ font-size: 60px;
+ padding: 80px;
+ padding-bottom: 0;
+ color: black;
+}
+
+.landing-right-section-content{
+ display: flex;
+ justify-content: center;
+ width: 600px;
+ height: 530px;
+}
+
+.landing-right-section-button{
+ padding-left: 80px;
+}
