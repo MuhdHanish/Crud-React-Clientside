@@ -68,4 +68,5 @@ input[type="password"] {
 
 .login-form-link{
  color: blue;
+ text-decoration: none;
 }

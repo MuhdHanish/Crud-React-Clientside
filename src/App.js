@@ -1,10 +1,10 @@
 import { Route, Routes } from "react-router-dom";
 
+import Home from "./pages/Home";
 import Login from "./components/Login/Login";
 import Profile from "./components/Profile/Profile";
 import Signup from "./components/Signup/Signup";
 
-import Home from "./pages/Home";
 import AdminHome from './pages/AdminHome'
 import AdminLogin from "./components/AdminLogin/AdminLogin";
 

@@ -70,4 +70,5 @@ input[type="password"] {
 
 .signup-form-link{
  color: blue;
+ text-decoration: none;
 }
