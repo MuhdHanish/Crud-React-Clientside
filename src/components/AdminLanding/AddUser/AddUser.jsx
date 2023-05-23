@@ -1,34 +1,12 @@
-import React, { useEffect, useState } from "react";
+import React, {  useState } from "react";
 
 import axios from '../../../axios'
 import "./AddUser.css";
 import { useNavigate } from "react-router-dom";
 import { HandleForm } from "../../../useForm";
-import jwtDecode from "jwt-decode";
 
 const AddUser = () => {
   const navigate = useNavigate()
-
-  useEffect(()=>{
-    const token = localStorage.getItem("admin");
-    if (token) {
-      try {
-        const tokenResponse = jwtDecode(token);
-        if (tokenResponse) {
-          const currentTime = Math.floor(Date.now() / 1000);
-          if (+tokenResponse.exp < +currentTime) {
-            localStorage.removeItem('admin')
-            return navigate('/admin/adduser');
-          }
-        }
-      } catch (error) {
-        console.error("Error occurred during token verification", error);
-      }
-    }else{
-      return navigate('/admin/login')
-    }
-  },[navigate])
-
   const [adduserState,setadduserState] = HandleForm({
      username:'',
      email:'',

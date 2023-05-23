@@ -5,13 +5,21 @@ import { faUser, faAddressCard, faRightFromBracket, faUserPen } from "@fortaweso
 import "./MainSection.css";
 import { useDispatch, useSelector } from "react-redux";
 import { setUserProfile } from "../../../redux/User/userProfileSlice";
+import { useNavigate } from "react-router";
 
 const MainSection = () => {
   const { id, username, email ,image} = useSelector((state) => state.userProfile);
-
+  const navigate = useNavigate()
   const dispatch=useDispatch()
+
+  const handleLogOut = () =>{
+    localStorage.removeItem("user")
+    navigate('/login')
+  }
+
   const handleImageUpload = async (event) => {
     event.preventDefault()
+  
     const file = event.target.files[0];
     const formData = new FormData();
     formData.append("image", file);
@@ -35,6 +43,7 @@ const MainSection = () => {
       console.error("Error uploading image:", error);
     }
   };
+  
   return (
     <section>
       <div className="profile-section py-5">
@@ -75,7 +84,7 @@ const MainSection = () => {
                     <p className="mb-0">{email}</p>
                   </li>
                   <li className="list-group-item d-flex justify-content-between align-items-center p-3">
-                    <FontAwesomeIcon icon={faRightFromBracket} color="red" />
+                    <FontAwesomeIcon icon={faRightFromBracket} onClick={handleLogOut}  className="user-logout-button" />
                     <p className="mb-0">Log Out</p>
                   </li>
                 </ul>

@@ -47,7 +47,7 @@ const Signup = () => {
     .then((response) => {
       setError({});
       const { token,user } = response.data;
-      localStorage.setItem("token", token);
+      localStorage.setItem("user", token);
       dispatch(setUserProfile({
         id:user.id,
         username:user.username,

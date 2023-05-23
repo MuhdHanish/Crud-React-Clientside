@@ -4,32 +4,11 @@ import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import axios from '../../../axios'
 import "./EditUser.css";
-import jwtDecode from "jwt-decode";
 
 
 const EditUser = () => {
    
   const navigate = useNavigate()
-
-  useEffect(()=>{
-    const token = localStorage.getItem("admin");
-    if (token) {
-      try {
-        const tokenResponse = jwtDecode(token);
-        if (tokenResponse) {
-          const currentTime = Math.floor(Date.now() / 1000);
-          if (+tokenResponse.exp < +currentTime) {
-            localStorage.removeItem('admin')
-            return navigate('/admin/edituser');
-          }
-        }
-      } catch (error) {
-        console.error("Error occurred during token verification", error);
-      }
-    }else{
-      return navigate('/admin/login')
-    }
-  },[navigate])
 
   const {id,username,email} = useSelector((state)=>state.editUser)
 

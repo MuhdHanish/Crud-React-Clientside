@@ -1,7 +1,6 @@
 import React from 'react'
 
 import{ useNavigate } from 'react-router-dom'
-import { baseUrl } from '../../../constance'
 import "./NavbarButton.css"
 
 const NavbarButton = ({linkText}) => {

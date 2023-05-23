@@ -45,3 +45,8 @@
  background-color: white;
  color: black;
 }
+
+.user-logout-button{
+  color: red;
+  cursor: pointer;
+}

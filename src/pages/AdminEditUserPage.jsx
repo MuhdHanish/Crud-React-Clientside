@@ -1,13 +1,11 @@
 import React, { useEffect } from 'react'
+import EditUser from '../components/AdminLanding/EditUser/EditUser'
+import jwtDecode from 'jwt-decode';
+import { useNavigate } from 'react-router';
 
-import AdminLanding from '../components/AdminLanding/AdminLanding'
-import Navbar from '../components/Navbar/Navbar'
-import jwtDecode from 'jwt-decode'
-import { useNavigate } from 'react-router'
-
-const AdminHome = () => {
-  const navigate = useNavigate()
-  useEffect(()=>{
+const AdminEditUserPage = () => {
+ const navigate = useNavigate()
+ useEffect(()=>{
     const token = localStorage.getItem("admin");
     if (token) {
       try {
@@ -26,18 +24,11 @@ const AdminHome = () => {
       return navigate('/admin/login')
     }
   },[navigate])
-
-  const details = {
-   headerText:'Admin Home',
-   linkText:'Log Out'
-  }
-  
   return (
     <>
-    <Navbar details={details} />
-    <AdminLanding/> 
+    <EditUser/>
     </>
   )
 }
 
-export default AdminHome
+export default AdminEditUserPage
