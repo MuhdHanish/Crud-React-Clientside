@@ -6,13 +6,14 @@ import axios from '../../axios'
 import "./Signup.css";
 
 const Signup = () => {
+
   const navigate = useNavigate()
   const [signupState,setSignupState] = HandleForm({
      username:'',
      email:'',
      password:''
   })
-  
+
   const [errors,setError] = useState({})
 
   const validation = {
@@ -23,12 +24,13 @@ const Signup = () => {
 
   const handleSubmit = async (e) => {
   e.preventDefault();
-
-  if (validation.username.test(signupState.username) === false) {
+  const trimmedUsername = signupState.username.trim();
+  if (validation.username.test(trimmedUsername)  === false) {
     setError({username: 'Invalid username'});
     return;
   }
-  if (validation.email.test(signupState.email) === false) {
+  const trimmedEmail = signupState.email.trim();
+  if (validation.email.test(trimmedEmail) === false) {
     setError({email: 'Invalid email' });
     return;
   }
@@ -38,8 +40,10 @@ const Signup = () => {
   }
   try{
     await axios.post('/signup',signupState)
-    .then(() => {
+    .then((response) => {
       setError({});
+      const { token } = response.data;
+      localStorage.setItem("token", token);
       navigate('/')
     })
   } catch (error) {
@@ -56,21 +60,21 @@ const Signup = () => {
             <label className="signup-label" htmlFor="name">
               Name:
             </label>
-            <input type="text" name='username' onChange={setSignupState} id="username"  />
+            <input type="text" name='username' value={signupState.username} onChange={setSignupState} id="username"  />
             {errors.username && <span className="error-message">{errors.username}</span>}
           </div>
           <div className="form-group">
             <label className="signup-label" htmlFor="email">
               Email:
             </label>
-            <input type="email" name='email' onChange={setSignupState} id="email"  />
+            <input type="email" name='email' value={signupState.email} onChange={setSignupState} id="email"  />
             {errors.email && <span className="error-message">{errors.email}</span>}
           </div>
           <div className="form-group">
             <label className="signup-label" htmlFor="password">
               Password:
             </label>
-            <input type="password" name='password' onChange={setSignupState} id="password"  />
+            <input type="password" name='password' value={signupState.password} onChange={setSignupState} id="password"  />
             {errors.password && <span className="error-message">{errors.password}</span>}
           </div>
           {errors.general && <span className="error-message">{errors.general}</span>}

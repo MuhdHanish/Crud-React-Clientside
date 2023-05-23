@@ -48,6 +48,7 @@ input[type="password"] {
  border: none;
  color: white;
  outline: none;
+ margin-top: 5px;
  font-size: 18px;
  padding: 10px;
  cursor: pointer;
@@ -62,6 +63,7 @@ input[type="password"] {
 }
 
 .login-form-text{
+ padding-top: 15px;
  font-size: 15px;
  color: rgb(0, 0, 0);
 }

@@ -48,6 +48,7 @@ input[type="password"] {
  border: none;
  color: white;
  outline: none;
+ margin-top: 5px;
  font-size: 18px;
  padding: 10px;
  cursor: pointer;

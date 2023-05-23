@@ -46,10 +46,10 @@ input[type="password"] {
  outline: none;
  font-size: 18px;
  padding: 10px;
+ margin-top: 5px;
  cursor: pointer;
  transition: all 0.3s ease-in-out;
  box-sizing: border-box;
- margin-bottom: 50px;
 }
 
 
@@ -65,6 +65,7 @@ input[type="password"] {
 }
 
 .signup-form-text{
+ padding-top: 15px;
  font-size: 15px;
  color: rgb(0, 0, 0);
 }
