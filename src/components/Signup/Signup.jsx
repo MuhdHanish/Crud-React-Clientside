@@ -5,7 +5,11 @@ import {Link,useNavigate} from 'react-router-dom'
 import axios from '../../axios'
 import "./Signup.css";
 
+import { useDispatch } from "react-redux";
+import { setUserProfile } from "../../redux/User/userProfileSlice";
+
 const Signup = () => {
+  const dispatch = useDispatch()
 
   const navigate = useNavigate()
   const [signupState,setSignupState] = HandleForm({
@@ -42,8 +46,13 @@ const Signup = () => {
     await axios.post('/signup',signupState)
     .then((response) => {
       setError({});
-      const { token } = response.data;
+      const { token,user } = response.data;
       localStorage.setItem("token", token);
+      dispatch(setUserProfile({
+        id:user.id,
+        username:user.username,
+        email:user.email,
+        image:user.image}))
       navigate('/')
     })
   } catch (error) {

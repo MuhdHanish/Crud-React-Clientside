@@ -9,7 +9,7 @@ const Landing = () => {
         <div className="col-lg-6 order-lg-2">
           <div className="landing-right-section-content">
             <img
-              src="https://raw.githubusercontent.com/codebucks27/The-Weirdos-NFT-Website-Starter-Code/main/src/assets/Home%20GIF.gif"
+              src="/avatar.webp"
               alt="Gif"
             />
           </div>
