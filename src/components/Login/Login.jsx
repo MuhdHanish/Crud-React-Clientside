@@ -40,7 +40,7 @@ const Login = () => {
     .then((response) => {
       setError({});
       const { token } = response.data;
-      localStorage.setItem("token", token);
+      localStorage.setItem("user", token);
       navigate('/')
     })
   } catch (error) {

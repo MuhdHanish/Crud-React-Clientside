@@ -1,12 +1,20 @@
 import { configureStore } from "@reduxjs/toolkit";
+import { persistStore, persistReducer } from "redux-persist";
+import storage from "redux-persist/lib/storage";
 
 import editUserReducer from "./Admin/editUserSlice";
 
+const persistConfig = {
+ key: "root",
+ storage,
+};
 
-const store = configureStore({
+const persistedEditReducer = persistReducer(persistConfig, editUserReducer);
+
+export const store = configureStore({
  reducer:{
-  editUser:editUserReducer,
+  editUser:persistedEditReducer,
  }
 })
 
-export default store
+export const persistor = persistStore(store)

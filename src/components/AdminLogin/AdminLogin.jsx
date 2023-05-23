@@ -39,7 +39,7 @@ const AdminLogin = () => {
     .then((response) => {
       setError({});
       const { token } = response.data;
-      localStorage.setItem("token", token);
+      localStorage.setItem("admin", token);
       navigate('/admin')
     })
   } catch (error) {

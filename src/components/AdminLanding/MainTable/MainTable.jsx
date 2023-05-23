@@ -11,6 +11,7 @@ const MainTable = () => {
   const navigate = useNavigate();
   const [userList, setUserList] = useState([]);
   const dispatch = useDispatch()
+
   const [searchQuery, setSearchQuery] = useState("");
   const [filteredUserList, setFilteredUserList] = useState([]);
 
@@ -27,8 +28,11 @@ const MainTable = () => {
       });
   };
 
-  useEffect(() => {
+   useEffect(() => {
     fetchUser();
+  }, []);
+
+  useEffect(() => {
     const filteredList = userList.filter((user) => {
       const usernameMatch = user.username
         .toLowerCase()
