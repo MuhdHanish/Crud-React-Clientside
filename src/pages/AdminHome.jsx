@@ -6,8 +6,7 @@ import Navbar from '../components/Navbar/Navbar'
 const AdminHome = () => {
   const details = {
    headerText:'Admin Home',
-   linkText:'Log Out',
-   link:'/admin/login'
+   linkText:'Log Out'
   }
   return (
     <>

@@ -6,8 +6,7 @@ import Landing from '../components/Landing/Landing'
 const Home = () => {
   const details = {
     headerText:'Home',
-    linkText: 'Go To Profile' ,
-    link:'profile'
+    linkText: 'Go To Profile' 
   }
   return (
     <>
