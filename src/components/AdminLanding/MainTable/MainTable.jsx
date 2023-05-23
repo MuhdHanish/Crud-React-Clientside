@@ -4,15 +4,17 @@ import { useNavigate } from "react-router-dom";
 import axios from "../../../axios";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
+import {useDispatch} from 'react-redux'
+import {getUser} from '../../../redux/Admin/editUserSlice'
 
 const MainTable = () => {
   const navigate = useNavigate();
   const [userList, setUserList] = useState([]);
-
+  const dispatch = useDispatch()
   const [searchQuery, setSearchQuery] = useState("");
   const [filteredUserList, setFilteredUserList] = useState([]);
 
-  const getUser = async () => {
+  const fetchUser = async () => {
     await axios
       .get("/admin/getusers")
       .then((response) => {
@@ -26,6 +28,7 @@ const MainTable = () => {
   };
 
   useEffect(() => {
+    fetchUser();
     const filteredList = userList.filter((user) => {
       const usernameMatch = user.username
         .toLowerCase()
@@ -43,18 +46,13 @@ const MainTable = () => {
       .delete(`/admin/deleteuser/${id}`)
       .then((response) => {
         if (response.status === 200) {
-          getUser();
+          fetchUser();
         }
       })
       .catch((error) => {
         console.log(error);
       });
   };
-
-  useEffect(() => {
-    getUser();
-    return () => {};
-  }, []);
 
   return (
     <>
@@ -102,7 +100,11 @@ const MainTable = () => {
                 <td>{user.email}</td>
                 <td className="action-button">
                   <button
-                    onClick={() => navigate(`/admin/edituser/${user._id}`)}
+                    onClick={() =>{ 
+                      dispatch(getUser({id: user._id, username: user.username, email: user.email }))  
+                      navigate('/admin/edituser')  
+                    }
+                    }
                   >
                     Edit
                   </button>

@@ -1,43 +1,28 @@
 import React, { useEffect, useState } from "react";
 
-import { useNavigate,useParams } from "react-router-dom";
-
+import { useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
 import axios from '../../../axios'
-
 import "./EditUser.css";
 
 
 const EditUser = () => {
+  const {id,username,email} = useSelector((state)=>state.editUser)
 
   const navigate = useNavigate()
-  
   const [editUserState,setEditUserState] = useState({
       id:'',
       username:'',
       email:'',
   })
 
-  const getUser = async(id) =>{
-    await axios.get(`/admin/getuser/${id}`)
-    .then((response) => {
-      if (response.status === 200) {
-        setEditUserState({
-          id:response.data.user._id,
-          username:response.data.user.username,
-          email:response.data.user.email,
-        })
-      }
-    })
-    .catch((error) => {
-      console.log(error);
-    });
-  }
-  const {id} = useParams()
   useEffect(() => {
-   getUser(id)
-    return () => {
-    }
-  }, [id])
+    setEditUserState({
+      id:id,
+      username:username,
+      email:email
+    })
+  }, [id,username,email])
   
   const [errors,setError] = useState({})
 
