@@ -35,7 +35,6 @@ const MainSection = () => {
       console.error("Error uploading image:", error);
     }
   };
-  console.log(image)
   return (
     <section>
       <div className="profile-section py-5">
@@ -46,7 +45,7 @@ const MainSection = () => {
                 <img
                   src={image ? `/images/${image}` : "../../../../avatar.webp"}
                   alt="avatar"
-                  style={{width:'150px',height:'150px'}}
+                  style={{width:'170px',height:'170px'}}
                   className="img-rounded-circle img-fluid"
                 />
               </div>
